@@ -1,4 +1,17 @@
-<?php require 'inc/head.php'; ?>
+<?php require 'inc/head.php';
+
+    if(!session_id())
+    {
+        session_start();
+        session_regenerate_id(true);
+    }
+
+    if (!empty($_POST['loginname'])) {
+    $_SESSION['loginname'] = $_POST['loginname'];
+    header('Location: index.php');
+    die;
+    }
+?>
 <div class="container" style="margin-top:40px">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
